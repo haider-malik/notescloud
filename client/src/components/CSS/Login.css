@@ -1,0 +1,17 @@
+input {
+	width: 100%;
+}
+form {
+	width: 90%;
+}
+
+.log {
+	margin-top: 10%;
+}
+
+
+
+.sub {
+	max-width: 100px;
+	float: right;
+}
