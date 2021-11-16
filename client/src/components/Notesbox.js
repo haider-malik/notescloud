@@ -56,7 +56,7 @@ function Notesbox() {
 				{loading && <GetNotesLoader />}
 				<div className="row text-center justify-content-center my-3">
 					{/* displaying every note using map function  */}
-					{notes.map((note) => {
+          {notes.map((note) => {
 						return <Noteitem key={note._id} note={note} />;
 					})}
 				</div>

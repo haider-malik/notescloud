@@ -13,13 +13,18 @@ function Navbar(props) {
 		history.push("/login");
 	};
 
+	const onSearchSubmit = (e) => {
+		e.preventDefault();
+	};
+
 	if (localStorage.getItem("token")) setTok(true);
 	return (
-		<nav className="navbar navbar-expand-sm navbar-light ">
-			<div className="container-fluid">
+		<nav className="navbar navbar-expand-md navbar-light ">
+			<div className="container-fluid ">
 				<Link className="navbar-brand brnd" to="#">
 					NotesCloud
 				</Link>
+
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -31,16 +36,51 @@ function Navbar(props) {
 				>
 					<span className="navbar-toggler-icon"></span>
 				</button>
-				<div className="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-					<div className="d-flex">
+
+				<div
+					className="collapse navbar-collapse"
+					id="navbarSupportedContent"
+					style={{
+						justifyContent: "flex-end",
+					}}
+				>
+					{tok && (
+						<form
+							onSubmit={onSearchSubmit}
+							className="d-flex my-2 "
+							style={{
+								maxWidth: "500px",
+								margin: "auto",
+							}}
+						>
+							<input
+								className="form-control me-2 search-box"
+								type="search"
+								placeholder="Search"
+								aria-label="Search"
+							/>
+							<button
+								className="btn btn-outline-primary search-btn"
+								type="submit"
+							>
+								Search
+							</button>
+						</form>
+					)}
+					{/* <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul> */}
+					<div
+						className="d-flex"
+						style={{
+							justifyContent: "flex-end",
+						}}
+					>
 						{!tok ? (
 							<div>
 								<Link className="btn btn-primary" to="/login" role="button">
 									Login
 								</Link>
 								<Link
-									className="btn btn-primary mx-2 "
+									className="btn btn-primary mx-2"
 									to="/signup"
 									role="button"
 								>
