@@ -1,11 +1,19 @@
 import React from "react";
 import "./CSS/Navbar.css";
 import { Link, useHistory } from "react-router-dom";
+import noteContext from "../contexts/notes/noteContext";
+import { useContext } from "react";
 
 function Navbar(props) {
 	let history = useHistory();
+	let context = useContext(noteContext);
 
+	let { search, setSearch } = context;
 	const { tok, setTok } = props;
+
+	const changeSearch = (e) => {
+		setSearch(e.target.value);
+	};
 
 	const handleLogout = (e) => {
 		localStorage.removeItem("token");
@@ -56,8 +64,10 @@ function Navbar(props) {
 							<input
 								className="form-control me-2 search-box"
 								type="search"
-								placeholder="Search"
+								placeholder="Search Your Notes"
 								aria-label="Search"
+								value={search}
+								onChange={changeSearch}
 							/>
 							<button
 								className="btn btn-outline-primary search-btn"
@@ -67,7 +77,6 @@ function Navbar(props) {
 							</button>
 						</form>
 					)}
-					{/* <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul> */}
 					<div
 						className="d-flex"
 						style={{

@@ -3,7 +3,8 @@ import { useState } from "react";
 
 const NoteState = (props) => {
 	const [notes, setNotes] = useState([]);
-  const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(true);
+	const [search, setSearch] = useState(null);
 	//fetching all notes from the database
 	const getNotes = async () => {
 		const response = await fetch(`/api/notes/fetchnotes`, {
@@ -15,8 +16,8 @@ const NoteState = (props) => {
 		});
 		const json = await response.json();
 		// console.log(json);
-    setNotes(json);
-    setLoading(false);
+		setNotes(json);
+		setLoading(false);
 	};
 
 	// Adding a note
@@ -102,7 +103,16 @@ const NoteState = (props) => {
 
 	return (
 		<NoteContext.Provider
-			value={{ notes, addNote, deleteNote, getNotes, alterNote, loading }}
+			value={{
+				notes,
+				addNote,
+				deleteNote,
+				getNotes,
+				alterNote,
+				loading,
+				search,
+				setSearch,
+			}}
 		>
 			{props.children}
 		</NoteContext.Provider>
