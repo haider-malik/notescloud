@@ -6,6 +6,7 @@ const NoteState = (props) => {
 	const [loading, setLoading] = useState(true);
 	const [search, setSearch] = useState(null);
 	//fetching all notes from the database
+  
 	const getNotes = async () => {
 		const response = await fetch(`/api/notes/fetchnotes`, {
 			method: "GET",

@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
-import noteContext from "../contexts/notes/noteContext";
-import EditNote from "./EditNote";
-import Noteitem from "./Noteitem";
-import "../App.css";
-import { useHistory } from "react-router";
-import notepen from "./images/notepen.svg";
-import GetNotesLoader from "./GetNotesLoader";
-import Noresult from "./Noresult";
+import React, { useContext, useEffect } from 'react';
+import noteContext from '../contexts/notes/noteContext';
+import EditNote from './EditNote';
+import Noteitem from './Noteitem';
+import '../App.css';
+import { useHistory } from 'react-router';
+import notepen from './images/notepen.svg';
+import GetNotesLoader from './GetNotesLoader';
+import Noresult from './Noresult';
 
 function Notesbox() {
 	const context = useContext(noteContext);
@@ -15,10 +15,10 @@ function Notesbox() {
 	let flag = false;
 
 	useEffect(() => {
-		if (localStorage.getItem("token")) {
+		if (localStorage.getItem('token')) {
 			getNotes();
 		} else {
-			history.push("/login");
+			history.push('/login');
 		}
 		// eslint-disable-next-line
 	}, []);
@@ -27,8 +27,8 @@ function Notesbox() {
 		<>
 			<div
 				style={{
-					width: "75%",
-					margin: "auto",
+					width: '75%',
+					margin: 'auto',
 				}}
 			>
 				<EditNote />
@@ -36,18 +36,18 @@ function Notesbox() {
 					<div
 						className="d-flex"
 						style={{
-							justifyContent: "center",
-							width: "100%",
-							fontSize: "5vw",
-							flexDirection: "column",
-							textAlign: "center",
+							justifyContent: 'center',
+							width: '100%',
+							fontSize: '5vw',
+							flexDirection: 'column',
+							textAlign: 'center',
 						}}
 					>
 						<img
 							style={{
-								height: "100px",
-								width: "100px",
-								margin: "auto",
+								height: '100px',
+								width: '100px',
+								margin: 'auto',
 							}}
 							src={notepen}
 							alt=""
@@ -69,10 +69,9 @@ function Notesbox() {
 								flag = true;
 								return <Noteitem key={note._id} note={note} />;
 							}
-						} else {
-							flag = true;
-							return <Noteitem key={note._id} note={note} />;
 						}
+						flag = true;
+						return <Noteitem key={note._id} note={note} />;
 					})}
 					{!loading && !flag && <Noresult />}
 				</div>

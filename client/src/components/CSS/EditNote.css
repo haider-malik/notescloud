@@ -11,6 +11,9 @@
 }
 
 .modal-content {
+	position: fixed;
+	top: 40%;
+	z-index: 2;
 	background: rgba(216, 216, 216, 0.386) !important;
 	backdrop-filter: blur(5px);
 }

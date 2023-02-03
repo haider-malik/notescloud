@@ -9,6 +9,7 @@ function Noteitem(props) {
 	const { clickonEdit } = econtext;
 	const { deleteNote } = context;
 	const { note } = props;
+  
 	return (
 		<div
 			className="col mb-2"
