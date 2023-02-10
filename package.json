@@ -1,7 +1,7 @@
 {
-	"name": "inotebook-backend",
+	"name": "notescloud-backend",
 	"version": "1.0.0",
-	"description": "iNotebook - Your notes on cloud",
+	"description": "Notescloud - Your notes on cloud",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -13,10 +13,27 @@
 		"bcryptjs": "^2.4.3",
 		"cors": "^2.8.5",
 		"dotenv": "^10.0.0",
-		"express": "^4.17.1",
+		"express": "^4.18.2",
 		"express-validator": "^6.13.0",
 		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^6.0.11",
-		"nodemon": "^2.0.13"
+		"mongoose": "^6.9.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://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@github.com/haider-malik/notescloud.git"
+	},
+	"keywords": [],
+	"bugs": {
+		"url": "https://github.com/haider-malik/notescloud/issues"
+	},
+	"homepage": "https://github.com/haider-malik/notescloud#readme",
+	"devDependencies": {
+		"@babel/cli": "^7.20.7",
+		"@babel/core": "^7.20.12",
+		"@babel/node": "^7.20.7",
+		"@babel/preset-env": "^7.20.2",
+		"babel-plugin-module-resolver": "^5.0.0",
+		"concurrently": "^7.6.0",
+		"nodemon": "^2.0.20"
 	}
 }
